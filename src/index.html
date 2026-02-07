@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted Gamz - Temporarily Down</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        #bg-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+
+        .glass-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 60px 50px;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .status {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .reason {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .reason p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .orbs-container {
+            margin: 30px auto 0;
+            width: 120px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .orb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.6));
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
+                        0 0 40px rgba(255, 255, 255, 0.3),
+                        inset 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .orb:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .orb:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .orb:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scale(1.3) translateY(-10px);
+                opacity: 1;
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8),
+                            0 0 60px rgba(255, 255, 255, 0.5),
+                            inset 0 0 15px rgba(255, 255, 255, 1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 40px 30px;
+                margin: 20px;
+                max-width: calc(100% - 40px);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .status {
+                font-size: 1rem;
+            }
+        }
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="bg-iframe" src="https://i.cgamz.site" title="Background"></iframe>
+    
+    <div class="glass-container">
+        <div class="glass-card">
+            <div class="content">
+                <h1>Crafted Gamz</h1>
+                <div class="status">
+                    <strong>Temporarily Offline</strong>
+                </div>
+                <div class="reason">
+                    <p>
+                        We're currently moving to a new version and need all our processing power for the migration. 
+                        The site will be back online shortly once the version transfer is complete. For now if needed, take a look at <a href="https://v13.cgamz.site/games">our version 13 Games selection</a>.
+                    </p>
+                </div>
+                <div class="orbs-container">
+                    <div class="orb"></div>
+                    <div class="orb"></div>
+                    <div class="orb"></div>
+                    <div class="orb"></div>
+                    <div class="orb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
